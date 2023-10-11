@@ -15,6 +15,11 @@ namespace DesafioLocalidade.Identity.Services
             _userManager = userManager;
         }
 
+        public IdentityService()
+        {
+            
+        }
+
         public async Task<UsuarioResponseViewModel> CadastrarUsuario(UsuarioViewModel request)
         {
             IdentityUser user = new()
