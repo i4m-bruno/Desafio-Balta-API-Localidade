@@ -1,5 +1,7 @@
-﻿using DesafioLocalidade.Data.Context;
+﻿using DesafioLocalidade.Application.Interfaces.Services;
+using DesafioLocalidade.Data.Context;
 using DesafioLocalidade.Identity.Context;
+using DesafioLocalidade.Identity.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +22,9 @@ namespace Desafio_Balta_API_Localidade.Ioc
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<IdentityDataContext>()
-                .AddDefaultTokenProviders();
+            .AddDefaultTokenProviders();
+
+            services.AddScoped<IIdentityService, IdentityService>();
         }
     }
 }
