@@ -5,7 +5,7 @@ public static class IdentityEndpoints
 {
     public static void MapEndpoints(WebApplication app)
     {
-        app.MapGet("/v1/api/resource", () => "Get user");
+        app.MapGet("/v1/api/usuario", () => "Get user");
 
         app.MapPost("/v1/api/usuario", async (IIdentityService _identityService, UsuarioViewModel vm) =>
         {
