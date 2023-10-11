@@ -10,9 +10,15 @@ public static class IdentityEndpoints
         app.MapPost("/v1/api/usuario", async (IIdentityService _identityService, UsuarioViewModel vm) =>
         {
             vm.Validate();
+
             if (vm.IsValid)
             {
                 var result = await _identityService.CadastrarUsuario(vm);
+
+                if(result.Sucesso)
+                    return Results.Ok(result);
+                else if (result.Erros.Count > 0)
+                    return Results.BadRequest(result);
             }
 
             return Results.BadRequest(vm.Notifications);

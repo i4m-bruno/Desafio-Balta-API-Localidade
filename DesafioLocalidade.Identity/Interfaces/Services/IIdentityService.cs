@@ -4,7 +4,7 @@ namespace DesafioLocalidade.Application.Interfaces.Services
 {
     public interface IIdentityService
     {
-        Task<UsuarioViewModel> CadastrarUsuario(Object request);
+        Task<UsuarioResponseViewModel> CadastrarUsuario(UsuarioViewModel request);
         Task<Object> Login(Object request);
     }
 }
