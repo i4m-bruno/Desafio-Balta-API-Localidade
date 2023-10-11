@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Api", "Desafio-Balta-API-Localidade\DesafioLocalidade.Api.csproj", "{10805C53-EDB2-470C-BC0C-FA166518EEDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioLocalidade.Api", "Desafio-Balta-API-Localidade\DesafioLocalidade.Api.csproj", "{10805C53-EDB2-470C-BC0C-FA166518EEDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Data", "DesafioLocalidade.Data\DesafioLocalidade.Data.csproj", "{0241408F-53CA-4F45-8F97-B0838AF0CDA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioLocalidade.Data", "DesafioLocalidade.Data\DesafioLocalidade.Data.csproj", "{0241408F-53CA-4F45-8F97-B0838AF0CDA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Domain", "DesafioLocalidade.Domain\DesafioLocalidade.Domain.csproj", "{F1B10313-3DB5-4E61-A130-4FB267B9113F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioLocalidade.Domain", "DesafioLocalidade.Domain\DesafioLocalidade.Domain.csproj", "{F1B10313-3DB5-4E61-A130-4FB267B9113F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Application", "DesafioLocalidade.Application\DesafioLocalidade.Application.csproj", "{4AE89497-E842-44C5-8A34-14633697905C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioLocalidade.Identity", "DesafioLocalidade.Identity\DesafioLocalidade.Identity.csproj", "{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Identity", "DesafioLocalidade.Identity\DesafioLocalidade.Identity.csproj", "{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioLocalidade.Test", "DesafioLocalidade.Test\DesafioLocalidade.Test.csproj", "{E3652115-931C-4B5C-8388-0E649AA8355E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{F1B10313-3DB5-4E61-A130-4FB267B9113F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1B10313-3DB5-4E61-A130-4FB267B9113F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1B10313-3DB5-4E61-A130-4FB267B9113F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AE89497-E842-44C5-8A34-14633697905C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AE89497-E842-44C5-8A34-14633697905C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AE89497-E842-44C5-8A34-14633697905C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AE89497-E842-44C5-8A34-14633697905C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A35304F-A30F-4C5F-B9C3-CE10AC0DD99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3652115-931C-4B5C-8388-0E649AA8355E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3652115-931C-4B5C-8388-0E649AA8355E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3652115-931C-4B5C-8388-0E649AA8355E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3652115-931C-4B5C-8388-0E649AA8355E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
