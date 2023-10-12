@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
     <Folder Include="Configuration\" />
+    <Folder Include="Constants\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
 
