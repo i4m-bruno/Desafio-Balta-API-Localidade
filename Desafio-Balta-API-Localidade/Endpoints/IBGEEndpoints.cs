@@ -1,4 +1,5 @@
 ﻿using DesafioLocalidade.Domain.Interfaces.IBGE;
+using Microsoft.AspNetCore.Mvc;
 
 public static class IBGEEndpoints
 {
@@ -16,9 +17,45 @@ public static class IBGEEndpoints
                 
         });   
         
-        app.MapGet("/v1/api/localidade/{id}", () => "Filtro por id");
-        app.MapGet("/v1/api/localidade/{estado}", () => "Filtro por estado");
-        app.MapGet("/v1/api/localidade/{cidade}", () => "Filtro por cidade");
+        app.MapGet("/v1/api/localidade/{id}", async ([FromQuery]string id, IIBGEQueriesService _service) => { 
+            
+            if (string.IsNullOrEmpty(id))
+                return Results.BadRequest("Id can't be null or empty!");
+
+            var ibge = await  _service.GetByIBGE(id);
+
+            if (ibge == null)
+                return Results.NotFound("No locations found!");
+
+            return Results.Ok(ibge);
+        });
+
+        app.MapGet("/v1/api/localidade/cidade/{cidade}", async (string city, IIBGEQueriesService _service) => {
+
+            if (string.IsNullOrEmpty(city))
+                return Results.BadRequest("Id can't be null or empty!");
+
+            var ibge = await _service.GetByCity(city);
+
+            if (ibge == null)
+                return Results.NotFound("No locations found!");
+
+            return Results.Ok(ibge);
+        });
+
+        app.MapGet("/v1/api/localidade/estado/{estado}", async (string uf, IIBGEQueriesService _service) => {
+
+            if (string.IsNullOrEmpty(uf))
+                return Results.BadRequest("Id can't be null or empty!");
+
+            var ibge = await _service.GetByUF(uf);
+
+            if (ibge == null)
+                return Results.NotFound("No locations found!");
+
+            return Results.Ok(ibge);
+        });
+        
 
         app.MapPost("/v1/api/localidade", () => "Criar localidade");
         app.MapPut("/v1/api/localidade", () => "Editar localidade");

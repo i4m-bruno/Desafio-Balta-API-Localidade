@@ -2,6 +2,7 @@
 using DesafioLocalidade.Domain.Interfaces.IBGE;
 using DesafioLocalidade.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DesafioLocalidade.Application.Services.IBGE
 {
@@ -18,25 +19,53 @@ namespace DesafioLocalidade.Application.Services.IBGE
             var skip = (page - 1) * pageSize;
             var take = pageSize;
 
-            return await _context.IBGE.Skip(skip)
+            return await _context.IBGE.AsNoTracking()
+                                            .Skip(skip)
                                             .Take(take)
-                                            .Select(ibge => new IBGEViewModel(ibge.Id,ibge.City, ibge.State))
+                                            .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
                                             .ToListAsync();
         }
 
-        public async Task<IEnumerable<IBGEViewModel>> GetByCity()
+        public async Task<IBGEViewModel> GetByIBGE(string id)
         {
-            throw new NotImplementedException();
+            var ibge = await _context.IBGE
+                .Where(i => i.Id == id)
+                .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (ibge != null)
+                return ibge;
+
+            return null;
         }
 
-        public async Task<IEnumerable<IBGEViewModel>> GetByIBGE()
+        public async Task<IBGEViewModel> GetByCity(string city)
         {
-            throw new NotImplementedException();
+            var ibge = await _context.IBGE
+                .Where(i => i.City.ToUpper().Equals(city.ToUpper()))
+                .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (ibge != null)
+                return ibge;
+
+            return null;
         }
 
-        public async Task<IEnumerable<IBGEViewModel>> GetByUF()
+        public async Task<IEnumerable<IBGEViewModel>> GetByUF(string uf)
         {
-            throw new NotImplementedException();
+            var ibge = await _context.IBGE
+                .Where(i => i.State.ToUpper().Equals(uf.ToUpper()))
+                .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
+                .AsNoTracking()
+                .ToListAsync();
+
+            if (ibge != null)
+                return ibge;
+
+            return null;
         }
     }
 }
