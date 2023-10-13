@@ -50,4 +50,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 IdentityEndpoints.MapEndpoints(app);
+IBGEEndpoints.MapEndpoints(app);
+
 app.Run();

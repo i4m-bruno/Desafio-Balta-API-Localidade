@@ -20,4 +20,8 @@
     <Folder Include="Helpers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioLocalidade.Domain\DesafioLocalidade.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
