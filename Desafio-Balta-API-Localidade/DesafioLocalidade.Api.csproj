@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioLocalidade.Application\DesafioLocalidade.Application.csproj" />
     <ProjectReference Include="..\DesafioLocalidade.Data\DesafioLocalidade.Data.csproj" />
     <ProjectReference Include="..\DesafioLocalidade.Identity\DesafioLocalidade.Identity.csproj" />
   </ItemGroup>
