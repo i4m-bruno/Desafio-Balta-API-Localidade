@@ -1,5 +1,6 @@
 ﻿using DesafioLocalidade.Domain.Interfaces.IBGEServices;
 using DesafioLocalidade.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 public static class IBGEEndpoints
@@ -18,7 +19,7 @@ public static class IBGEEndpoints
                 
         });   
         
-        app.MapGet("/v1/api/localidade/{id}", async ([FromQuery]string id, IIBGEQueriesService _service) => { 
+        app.MapGet("/v1/api/localidade/{id}", [Authorize] async ([FromQuery]string id, IIBGEQueriesService _service) => { 
             
             if (string.IsNullOrEmpty(id))
                 return Results.BadRequest("Id can't be null or empty!");
@@ -31,7 +32,7 @@ public static class IBGEEndpoints
             return Results.Ok(ibge);
         });
 
-        app.MapGet("/v1/api/localidade/cidade/{cidade}", async (string city, IIBGEQueriesService _service) => {
+        app.MapGet("/v1/api/localidade/cidade/{cidade}", [Authorize] async (string city, IIBGEQueriesService _service) => {
 
             if (string.IsNullOrEmpty(city))
                 return Results.BadRequest("Id can't be null or empty!");
@@ -44,7 +45,7 @@ public static class IBGEEndpoints
             return Results.Ok(ibge);
         });
 
-        app.MapGet("/v1/api/localidade/estado/{estado}", async (string uf, IIBGEQueriesService _service) => {
+        app.MapGet("/v1/api/localidade/estado/{estado}", [Authorize] async (string uf, IIBGEQueriesService _service) => {
 
             if (string.IsNullOrEmpty(uf))
                 return Results.BadRequest("Id can't be null or empty!");
@@ -55,12 +56,12 @@ public static class IBGEEndpoints
                 return Results.NotFound("No locations found!");
 
             return Results.Ok(ibge);
-        }); 
+        });
 
-        app.MapPost("/v1/api/localidade", async (IBGEViewModel vm, IIBGECommandsService _service) =>
+        app.MapPost("/v1/api/localidade", [Authorize] async (IBGEViewModel vm, IIBGECommandsService _service) =>
         {
             vm.Validate();
-            if(vm.IsValid)
+            if (vm.IsValid)
             {
                 var result = await _service.Create(vm);
                 if (result == null)
@@ -71,10 +72,10 @@ public static class IBGEEndpoints
             return Results.BadRequest(vm.Notifications);
         });
 
-        app.MapPut("/v1/api/localidade", async (IBGEViewModel vm, IIBGECommandsService _service) => 
+        app.MapPut("/v1/api/localidade", [Authorize(Roles = "Admin")] async (IBGEViewModel vm, IIBGECommandsService _service) =>
         {
             vm.Validate();
-            if(vm.IsValid)
+            if (vm.IsValid)
             {
                 var result = await _service.Update(vm);
                 if (result == null)
@@ -85,10 +86,10 @@ public static class IBGEEndpoints
             return Results.BadRequest(vm.Notifications);
         });
 
-        app.MapDelete("/v1/api/localidade/delete/{id}", async (string id, IIBGECommandsService _service) =>
+        app.MapDelete("/v1/api/localidade/delete/{id}", [Authorize(Roles = "Admin")] async (string id, IIBGECommandsService _service) =>
         {
             var result = await _service.Delete(id);
-            if(result)
+            if (result)
                 return Results.Ok(result);
 
             return Results.BadRequest();
