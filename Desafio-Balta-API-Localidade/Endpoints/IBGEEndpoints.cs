@@ -1,4 +1,5 @@
-﻿using DesafioLocalidade.Domain.Interfaces.IBGE;
+﻿using DesafioLocalidade.Domain.Interfaces.IBGEServices;
+using DesafioLocalidade.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 public static class IBGEEndpoints
@@ -22,7 +23,7 @@ public static class IBGEEndpoints
             if (string.IsNullOrEmpty(id))
                 return Results.BadRequest("Id can't be null or empty!");
 
-            var ibge = await  _service.GetByIBGE(id);
+            var ibge = await _service.GetByIBGE(id);
 
             if (ibge == null)
                 return Results.NotFound("No locations found!");
@@ -54,10 +55,22 @@ public static class IBGEEndpoints
                 return Results.NotFound("No locations found!");
 
             return Results.Ok(ibge);
-        });
-        
+        }); 
 
-        app.MapPost("/v1/api/localidade", () => "Criar localidade");
+        app.MapPost("/v1/api/localidade", async (IBGEViewModel vm, IIBGECommandsService _service) =>
+        {
+            vm.Validate();
+            if(vm.IsValid)
+            {
+                var result = await _service.Create(vm);
+                if (result == null)
+                    return Results.BadRequest();
+
+                return Results.Ok(result);
+            }
+            return Results.BadRequest(vm.Notifications);
+        });
+
         app.MapPut("/v1/api/localidade", () => "Editar localidade");
         app.MapDelete("/v1/api/localidade", () => "Deletar localidade");
 
