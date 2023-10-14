@@ -3,6 +3,9 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.RegisterServices(builder.Configuration);
+builder.Services.AdicionarAutenticacao(builder.Configuration);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -34,9 +37,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.RegisterServices(builder.Configuration);
-builder.Services.AdicionarAutenticacao(builder.Configuration);
 var app = builder.Build();
+
+IdentityEndpoints.MapEndpoints(app);
+IBGEEndpoints.MapEndpoints(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -49,5 +53,4 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-IdentityEndpoints.MapEndpoints(app);
 app.Run();
