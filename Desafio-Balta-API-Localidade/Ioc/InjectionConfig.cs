@@ -1,7 +1,7 @@
 ﻿using DesafioLocalidade.Application.Interfaces.Services;
-using DesafioLocalidade.Application.Services.IBGE;
+using DesafioLocalidade.Application.Services.IBGEServices;
 using DesafioLocalidade.Data.Context;
-using DesafioLocalidade.Domain.Interfaces.IBGE;
+using DesafioLocalidade.Domain.Interfaces.IBGEServices;
 using DesafioLocalidade.Identity.Context;
 using DesafioLocalidade.Identity.Services;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +28,7 @@ namespace Desafio_Balta_API_Localidade.Ioc
 
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IIBGEQueriesService, IBGEQueriesService>();
+            services.AddScoped<IIBGECommandsService, IBGECommandsService>();
         }
     }
 }

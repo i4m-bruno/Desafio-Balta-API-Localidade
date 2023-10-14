@@ -68,8 +68,9 @@ namespace DesafioLocalidade.Identity.Services
         private async Task<UsuarioLoginResponseViewModel> GerarToken(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
-            var tokenClaims = await ObterClaims(user);
+            if (user == null) throw new NullReferenceException(nameof(user));
 
+            var tokenClaims = await ObterClaims(user);
             var dataExpiracao = DateTime.Now.AddHours(_jwtOptions.Expiration);
 
             var jwt = new JwtSecurityToken(
@@ -94,7 +95,7 @@ namespace DesafioLocalidade.Identity.Services
             var roles = await _userManager.GetRolesAsync(user);
 
             claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
+            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, DateTime.Now.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()));

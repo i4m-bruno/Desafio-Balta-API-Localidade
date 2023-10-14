@@ -1,10 +1,9 @@
 using DesafioLocalidade.Data.Context;
-using DesafioLocalidade.Domain.Interfaces.IBGE;
+using DesafioLocalidade.Domain.Interfaces.IBGEServices;
 using DesafioLocalidade.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography.X509Certificates;
 
-namespace DesafioLocalidade.Application.Services.IBGE
+namespace DesafioLocalidade.Application.Services.IBGEServices
 {
     public class IBGEQueriesService : IIBGEQueriesService
     {
@@ -28,44 +27,29 @@ namespace DesafioLocalidade.Application.Services.IBGE
 
         public async Task<IBGEViewModel> GetByIBGE(string id)
         {
-            var ibge = await _context.IBGE
+            return await _context.IBGE
                 .Where(i => i.Id == id)
                 .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
-
-            if (ibge != null)
-                return ibge;
-
-            return null;
         }
 
         public async Task<IBGEViewModel> GetByCity(string city)
         {
-            var ibge = await _context.IBGE
+            return await _context.IBGE
                 .Where(i => i.City.ToUpper().Equals(city.ToUpper()))
                 .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
-
-            if (ibge != null)
-                return ibge;
-
-            return null;
         }
 
         public async Task<IEnumerable<IBGEViewModel>> GetByUF(string uf)
         {
-            var ibge = await _context.IBGE
+            return await _context.IBGE
                 .Where(i => i.State.ToUpper().Equals(uf.ToUpper()))
                 .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
                 .AsNoTracking()
                 .ToListAsync();
-
-            if (ibge != null)
-                return ibge;
-
-            return null;
         }
     }
 }
