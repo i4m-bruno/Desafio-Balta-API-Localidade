@@ -1,4 +1,5 @@
-﻿using DesafioLocalidade.Domain.Interfaces.IBGEServices;
+﻿using DesafioLocalidade.Application.Services.IBGEServices;
+using DesafioLocalidade.Domain.Interfaces.IBGEServices;
 using DesafioLocalidade.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -71,8 +72,32 @@ public static class IBGEEndpoints
             return Results.BadRequest(vm.Notifications);
         });
 
-        app.MapPut("/v1/api/localidade", () => "Editar localidade");
-        app.MapDelete("/v1/api/localidade", () => "Deletar localidade");
+        app.MapPut("/v1/api/localidade/edit", async (IBGEViewModel vm, IIBGECommandsService _service) => 
+        {
+            vm.Validate();
+            if(vm.IsValid)
+            {
+                var result = await _service.Update(vm);
+                if (result == null)
+                    return Results.BadRequest();
+
+                return Results.Ok(result);
+            }
+            return Results.BadRequest(vm.Notifications);
+        });
+
+        app.MapDelete("/v1/api/localidade/delete/{ibge}", async (IBGEViewModel vm, IIBGECommandsService _service) =>
+        {
+            vm.Validate();
+            if(vm.IsValid)
+            {
+                var result = await _service.Delete(vm);
+
+                return Results.Ok(result);
+            }
+        
+            return Results.BadRequest(vm.Notifications);
+        });
 
     }
 }

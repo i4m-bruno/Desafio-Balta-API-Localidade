@@ -30,9 +30,23 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
             }
         }
 
-        public Task<bool> Delete()
+        public async Task<bool> Delete(IBGEViewModel vm)
         {
-            throw new NotImplementedException();
+            try
+            {
+                IBGE ibge = await _context.IBGE.FindAsync(vm.Id);
+                if (ibge == null)
+                    return false;
+
+                _context.IBGE.Remove(ibge);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<IEnumerable<IBGEViewModel>> ExcelUpdload()
@@ -40,9 +54,25 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
             throw new NotImplementedException();
         }
 
-        public Task<IBGEViewModel> Update()
+        public async Task<IBGEViewModel> Update(IBGEViewModel vm)
         {
-            throw new NotImplementedException();
+            try
+            {
+                IBGE ibge = await _context.IBGE.FindAsync(vm.Id);
+                if (ibge == null)
+                    return null;
+
+                ibge.State = vm.State;
+                ibge.City = vm.City;
+
+                await _context.SaveChangesAsync();
+
+                return vm;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
