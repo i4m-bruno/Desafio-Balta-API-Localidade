@@ -2,6 +2,7 @@
 using DesafioLocalidade.Domain.Interfaces.IBGEServices;
 using DesafioLocalidade.Domain.Models;
 using DesafioLocalidade.Domain.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioLocalidade.Application.Services.IBGEServices
 {
@@ -30,11 +31,11 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
             }
         }
 
-        public async Task<bool> Delete(IBGEViewModel vm)
+        public async Task<bool> Delete(string id)
         {
             try
             {
-                IBGE ibge = await _context.IBGE.FindAsync(vm.Id);
+                IBGE ibge = await _context.IBGE.FirstOrDefaultAsync(ibge => ibge.Id.Equals(id)) ?? null;
                 if (ibge == null)
                     return false;
 
@@ -43,9 +44,9 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -58,7 +59,7 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
         {
             try
             {
-                IBGE ibge = await _context.IBGE.FindAsync(vm.Id);
+                IBGE ibge = await _context.IBGE.FirstOrDefaultAsync(ibge => ibge.Id.Equals(vm.Id));
                 if (ibge == null)
                     return null;
 
@@ -66,12 +67,11 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
                 ibge.City = vm.City;
 
                 await _context.SaveChangesAsync();
-
                 return vm;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

@@ -6,7 +6,7 @@ namespace DesafioLocalidade.Domain.Interfaces.IBGEServices
     {
         Task<IBGEViewModel> Create(IBGEViewModel vm);
         Task<IBGEViewModel> Update(IBGEViewModel vm);
-        Task<bool> Delete(IBGEViewModel vm);
+        Task<bool> Delete(string id);
         Task<IEnumerable<IBGEViewModel>> ExcelUpdload();
     }
 }
