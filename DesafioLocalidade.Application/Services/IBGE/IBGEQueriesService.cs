@@ -1,4 +1,4 @@
-﻿using DesafioLocalidade.Data.Context;
+using DesafioLocalidade.Data.Context;
 using DesafioLocalidade.Domain.Interfaces.IBGE;
 using DesafioLocalidade.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;

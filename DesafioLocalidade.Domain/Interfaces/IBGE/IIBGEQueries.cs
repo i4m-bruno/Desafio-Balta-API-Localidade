@@ -1,4 +1,4 @@
-﻿using DesafioLocalidade.Domain.ViewModels;
+using DesafioLocalidade.Domain.ViewModels;
 
 namespace DesafioLocalidade.Domain.Interfaces.IBGE
 {

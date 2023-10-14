@@ -19,4 +19,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="S:\PROJETOS\Desafio-Balta-API-Localidade\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="S:\PROJETOS\Desafio-Balta-API-Localidade\.editorconfig" />
+  </ItemGroup>
+
 </Project>
