@@ -5,8 +5,8 @@ namespace DesafioLocalidade.Domain.Interfaces.IBGE
     public interface IIBGEQueriesService
     {
         Task<IEnumerable<IBGEViewModel>> GetAll(int page, int pageSize);
-        Task<IEnumerable<IBGEViewModel>> GetByIBGE();
-        Task<IEnumerable<IBGEViewModel>> GetByCity();
+        Task<IBGEViewModel>? GetByIBGE();
+        Task<IBGEViewModel>? GetByCity(string city);
         Task<IEnumerable<IBGEViewModel>> GetByUF();
     }
 }

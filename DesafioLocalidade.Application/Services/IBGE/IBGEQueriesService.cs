@@ -24,12 +24,14 @@ namespace DesafioLocalidade.Application.Services.IBGE
                                             .ToListAsync();
         }
 
-        public async Task<IEnumerable<IBGEViewModel>> GetByCity()
+        public async Task<IBGEViewModel>? GetByCity(string city)
         {
-            throw new NotImplementedException();
+            return await _context.IBGE.Where(ibge => ibge.City.ToUpper().Equals(city.ToUpper()))
+                                      .Select(ibge => new IBGEViewModel(ibge.Id, ibge.City, ibge.State))
+                                      .FirstOrDefaultAsync() ?? null;
         }
 
-        public async Task<IEnumerable<IBGEViewModel>> GetByIBGE()
+        public async Task<IBGEViewModel> GetByIBGE()
         {
             throw new NotImplementedException();
         }

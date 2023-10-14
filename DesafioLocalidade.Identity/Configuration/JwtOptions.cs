@@ -4,6 +4,10 @@ namespace DesafioLocalidade.Identity.Configuration
 {
     public class JwtOptions
    {
+        public JwtOptions()
+        {
+            
+        }
         public JwtOptions(string issuer, string audience, SigningCredentials signingCredentials, int expiration)
         {
             Issuer = issuer;
