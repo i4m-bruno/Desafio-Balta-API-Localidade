@@ -19,7 +19,7 @@ public static class IBGEEndpoints
                 
         });   
         
-        app.MapGet("/v1/api/localidade/{id}", [Authorize] async ([FromQuery]string id, IIBGEQueriesService _service) => { 
+        app.MapGet("/v1/api/localidade/{id}", [Authorize] async ([FromQuery]string id, IIBGEQueriesService _service) => {
             
             if (string.IsNullOrEmpty(id))
                 return Results.BadRequest("Id can't be null or empty!");
