@@ -91,15 +91,12 @@ namespace DesafioLocalidade.Test
         [Fact]
         public async Task BuscarPorCodigo_Sucesso()
         {
-            // Arrange
             var entity = new IBGE("0000000", "MG", "Tuiutaba");
             await _appDbContext.IBGE.AddAsync(entity);
             await _appDbContext.SaveChangesAsync();
 
-            // Act
             var retrievedEntity = await _queriesService.GetByIBGE(entity.Id);
 
-            // Assert
             Assert.NotNull(retrievedEntity);
             Assert.Equal(entity.Id, retrievedEntity.Id);
             Assert.Equal(entity.State, retrievedEntity.State);
@@ -110,15 +107,12 @@ namespace DesafioLocalidade.Test
         [Fact]
         public async Task BuscarPorCidade_Sucesso()
         {
-            // Arrange
             var entity = new IBGE("0000000", "NY", "Gothan City");
             await _appDbContext.IBGE.AddAsync(entity);
             await _appDbContext.SaveChangesAsync();
 
-            // Act
             var retrievedEntity = await _queriesService.GetByCity(entity.City);
 
-            // Assert
             Assert.NotNull(retrievedEntity);
             Assert.Equal(entity.Id, retrievedEntity.Id);
             Assert.Equal(entity.State, retrievedEntity.State);
