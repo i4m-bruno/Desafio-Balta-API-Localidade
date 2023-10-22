@@ -38,7 +38,17 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder => builder
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowAnyOrigin());
+});
+
 var app = builder.Build();
+app.UseCors("AllowAnyOrigin");
 
 using (var scope = app.Services.CreateScope())
 {
