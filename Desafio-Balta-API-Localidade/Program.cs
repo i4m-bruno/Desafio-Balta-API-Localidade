@@ -76,5 +76,5 @@ app.UseSwaggerUI(c =>
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.Map("/", () => Results.Redirect("/docs"));
 app.Run();
