@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "9074a090-8c1b-4860-90a3-7caaa3034993",
 		"name": "DesafioLocalidade.Api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26807148"
 	},
 	"item": [
@@ -87,7 +87,15 @@
 												}
 											}
 										},
-										"url": "//v1/api/usuario"
+										"url": {
+											"raw": "//v1/api/usuario",
+											"path": [
+												"",
+												"v1",
+												"api",
+												"usuario"
+											]
+										}
 									},
 									"status": "OK",
 									"code": 200,
@@ -118,7 +126,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/v1/api/usuario/login"
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/usuario/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"usuario",
+										"login"
+									]
+								}
 							},
 							"response": [
 								{
@@ -146,7 +165,16 @@
 												}
 											}
 										},
-										"url": "//v1/api/usuario/login"
+										"url": {
+											"raw": "//v1/api/usuario/login",
+											"path": [
+												"",
+												"v1",
+												"api",
+												"usuario",
+												"login"
+											]
+										}
 									},
 									"status": "OK",
 									"code": 200,
@@ -241,9 +269,13 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
 								},
 								"method": "POST",
 								"header": [
@@ -254,7 +286,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"9999999\",\n  \"city\": \"Araguari\",\n  \"state\": \"MG\"\n}",
+									"raw": "{\n  \"id\": \"1234567\",\n  \"city\": \"Araguari\",\n  \"state\": \"MG\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -262,7 +294,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/v1/api/localidade"
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade"
+									]
+								}
 							},
 							"response": [
 								{
@@ -290,7 +332,17 @@
 												}
 											}
 										},
-										"url": "{{baseUrl}}/v1/api/localidade"
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade"
+											]
+										}
 									},
 									"status": "OK",
 									"code": 200,
@@ -313,7 +365,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"notifications\": [\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"isValid\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\"\n}",
+									"raw": "{\n  \"id\": \"999\",\n  \"city\": \"Araguari\",\n  \"state\": \"MG\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -321,7 +373,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/v1/api/localidade"
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade"
+									]
+								}
 							},
 							"response": [
 								{
@@ -349,7 +411,17 @@
 												}
 											}
 										},
-										"url": "{{baseUrl}}/v1/api/localidade"
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade"
+											]
+										}
 									},
 									"status": "OK",
 									"code": 200,
@@ -365,14 +437,18 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
 								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/v1/api/localidade/:id?id=9999999",
+									"raw": "{{baseUrl}}/v1/api/localidade/:id?id=1234567",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -385,7 +461,7 @@
 									"query": [
 										{
 											"key": "id",
-											"value": "9999999",
+											"value": "1234567",
 											"description": "(Required) "
 										}
 									],
@@ -445,6 +521,16 @@
 						{
 							"name": "/v1/api/localidade/excel",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -457,13 +543,24 @@
 									"formdata": [
 										{
 											"key": "file",
-											"value": "<string>",
 											"description": "(Required) ",
-											"type": "text"
+											"type": "file",
+											"src": "/C:/Users/ossBr/Downloads/SQL INSERTS - API de localidades IBGE.xlsx"
 										}
 									]
 								},
-								"url": "{{baseUrl}}/v1/api/localidade/excel"
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/excel",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										"excel"
+									]
+								}
 							},
 							"response": [
 								{
@@ -492,7 +589,18 @@
 												}
 											]
 										},
-										"url": "{{baseUrl}}/v1/api/localidade/excel"
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/excel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												"excel"
+											]
+										}
 									},
 									"status": "OK",
 									"code": 200,
@@ -508,9 +616,13 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
 								},
 								"method": "GET",
 								"header": [],
@@ -592,9 +704,13 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
 								},
 								"method": "DELETE",
 								"header": [],
@@ -617,7 +733,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "9999999"
+											"value": "999"
 										}
 									]
 								}
@@ -667,9 +783,13 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
 								},
 								"method": "GET",
 								"header": [],
@@ -753,11 +873,23 @@
 	],
 	"auth": {
 		"type": "apikey",
-		"apikey": {
-			"key": "Authorization",
-			"value": "{{apiKey}}",
-			"in": "header"
-		}
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
 	},
 	"variable": [
 		{
