@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "apis1": {
+      "apiEndpoint": "https://desafiolocalidadeapi.azure-api.net/",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/DesafioLocalidadeApi/apis/DesafioLocalidadeApi",
+      "type": "apis.azure"
+    }
+  }
+}

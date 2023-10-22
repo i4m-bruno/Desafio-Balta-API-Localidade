@@ -8,8 +8,12 @@ builder.Services.RegisterServices(builder.Configuration);
 builder.Services.AdicionarAutenticacao(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
+
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API IBGE", Version = "v1" });
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: 'Bearer {token}'",
