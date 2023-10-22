@@ -1,4 +1,4 @@
-#API de Localidades
+## API de Localidades
 
 ## Descrição
 Projeto de estudo feito em um desafio do grande https://balta.io/
