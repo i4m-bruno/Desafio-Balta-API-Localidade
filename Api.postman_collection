@@ -1,0 +1,900 @@
+{
+	"info": {
+		"_postman_id": "9074a090-8c1b-4860-90a3-7caaa3034993",
+		"name": "DesafioLocalidade.Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26807148"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "usuario",
+					"item": [
+						{
+							"name": "/v1/api/usuario",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"teste2@mail.com\",\n  \"senha\": \"Senha@123\",\n  \"senhaConfirma\": \"Senha@123\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"usuario"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "mail@mail.com.br",
+											"disabled": true
+										},
+										{
+											"key": "senha",
+											"value": "Senha@123",
+											"disabled": true
+										},
+										{
+											"key": "senhaConfirma",
+											"value": "Senha@123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"notifications\": [\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"isValid\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"senha\": \"<string>\",\n  \"senhaConfirma\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "//v1/api/usuario",
+											"path": [
+												"",
+												"v1",
+												"api",
+												"usuario"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/usuario/login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"teste@mail.com\",\n  \"senha\": \"Senha@123\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/usuario/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"usuario",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"notifications\": [\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"isValid\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"senha\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "//v1/api/usuario/login",
+											"path": [
+												"",
+												"v1",
+												"api",
+												"usuario",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "localidade",
+					"item": [
+						{
+							"name": "/v1/api/localidade",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade?page=1&pageSize=99",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "(Required) "
+										},
+										{
+											"key": "pageSize",
+											"value": "99",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade?page=<integer>&pageSize=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "pageSize",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"1234567\",\n  \"city\": \"Araguari\",\n  \"state\": \"MG\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"notifications\": [\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"isValid\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"999\",\n  \"city\": \"Araguari\",\n  \"state\": \"MG\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"notifications\": [\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"isValid\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/:id?id=1234567",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										":id"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1234567",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/:id?id=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												":id"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade/excel",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "(Required) ",
+											"type": "file",
+											"src": "/C:/Users/ossBr/Downloads/SQL INSERTS - API de localidades IBGE.xlsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/excel",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										"excel"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "<string>",
+													"description": "(Required) ",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/excel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												"excel"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade/estado/:estado",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/estado/:estado?uf=MG",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										"estado",
+										":estado"
+									],
+									"query": [
+										{
+											"key": "uf",
+											"value": "MG",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "estado"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/estado/:estado?uf=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												"estado",
+												":estado"
+											],
+											"query": [
+												{
+													"key": "uf",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "estado"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade/delete/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "999"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/v1/api/localidade/cidade/:cidade",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZjBlZjUzOS02YWJhLTQxZDAtYmM5Ni0zYmQ3ZTRkZmI4NGYiLCJlbWFpbCI6ImFkbWluQHRlc3RlLmNvbSIsImp0aSI6ImY4OTc5ODQ1LTY0MTEtNDRlZS05ODE2LTIzMjc2NzBlMmVkNSIsIm5iZiI6MTY5Nzk4MjM2OCwiaWF0IjoiMjIvMTAvMjAyMyAxMDo0NjowOCIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTk4MjM2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCIsImF1ZCI6IkF1ZGllbmNlIn0.yKx9VXgkq2jmdXL3_yamBEx_muFk-tcAKuOOMb3IbFFVPkIZn1TQQvEGY5Is6LcOlmX4fmzT_KFx8odV0zLL6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/localidade/cidade/:cidade?city=Araguari",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"localidade",
+										"cidade",
+										":cidade"
+									],
+									"query": [
+										{
+											"key": "city",
+											"value": "Araguari",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "cidade"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/localidade/cidade/:cidade?city=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"localidade",
+												"cidade",
+												":cidade"
+											],
+											"query": [
+												{
+													"key": "city",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "cidade"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

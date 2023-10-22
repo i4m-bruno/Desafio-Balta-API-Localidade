@@ -20,12 +20,14 @@ namespace DesafioLocalidade.Domain.ViewModels
         {
             var contract = new Contract<Notification>()
                 .Requires()
+                .IsLowerOrEqualsThan(Id, 7, "Invalid id")
+                .IsLowerOrEqualsThan(State, 2, "Invalid state")
+                .IsLowerOrEqualsThan(City, 50, "Invalid city")
                 .IsNotNullOrEmpty(Id, "Id can´t be null or empty")
                 .IsNotNullOrEmpty(City, "City can´t be null or empty")
                 .IsNotNullOrEmpty(State, "State can´t be null or empty");
 
             AddNotifications(contract);
         }
-
     }
 }
