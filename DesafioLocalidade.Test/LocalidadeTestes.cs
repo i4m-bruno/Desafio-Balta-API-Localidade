@@ -119,6 +119,40 @@ namespace DesafioLocalidade.Test
             Assert.Equal(entity.City, retrievedEntity.City);
             _appDbContext.Database.EnsureDeleted();
         }
+        
+        [Fact]
+        public async Task CadastrarLocalidade_Sucesso()
+        {
+            var vm= new IBGEViewModel("0000000", "Gothan City", "NY");
+
+            var ibgeCreated = await _commandsService.Create(vm);
+
+            var result = await _queriesService.GetByIBGE(ibgeCreated.Id);
+            
+            Assert.NotNull(result);
+            Assert.Equal(vm.Id, ibgeCreated.Id);
+            Assert.Equal(vm.State, ibgeCreated.State);
+            Assert.Equal(vm.City, ibgeCreated.City);
+            _appDbContext.Database.EnsureDeleted();
+        }
+        
+        [Fact]
+        public async Task AtualizarLocalidade_Sucesso()
+        {
+            var vm= new IBGEViewModel("0000000", "Gothan City", "NY");
+            await _commandsService.Create(vm);
+            vm.City = "Araguari";
+            vm.State = "MG";
+
+            var IbgeUpdated = await _commandsService.Update(vm);  
+            var result = await _queriesService.GetByIBGE(vm.Id);
+            
+            Assert.NotNull(result);
+            Assert.Equal(vm.Id, IbgeUpdated.Id);
+            Assert.Equal(vm.State, IbgeUpdated.State);
+            Assert.Equal(vm.City, IbgeUpdated.City);
+            _appDbContext.Database.EnsureDeleted();
+        }
         void IDisposable.Dispose()
         {
             _appDbContext.Dispose();

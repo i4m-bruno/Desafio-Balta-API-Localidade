@@ -71,6 +71,18 @@ public static class IBGEEndpoints
             }
             return Results.BadRequest(vm.Notifications);
         });
+        
+        app.MapPost("/v1/api/localidade/excel", [Authorize] async ([FromForm]IFormFile file, IIBGECommandsService _service) =>
+        {
+            if (file == null || file.Length == 0)
+                return Results.BadRequest("Arquivo inválido");
+
+            var result = await _service.ExcelUpdload(file);
+            if (result == null)
+                return Results.BadRequest();
+
+            return Results.Ok(result);
+        });
 
         app.MapPut("/v1/api/localidade", [Authorize(Roles = "Admin")] async (IBGEViewModel vm, IIBGECommandsService _service) =>
         {
