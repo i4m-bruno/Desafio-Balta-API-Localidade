@@ -10,7 +10,52 @@ API responsável pelo gerenciamento de localidades, permitindo operações de cr
 - Azure App Service
 - Azure SQL Database
 
-## Endpoints
+## Autenticação
+A maioria dos endpoints exigem autenticação. Para obter acesso, é necessário fazer uma requisição para o endpoint de login e utilizar o token JWT fornecido nas requisições subsequentes.
+---
+### POST /v1/api/usuario/login
+**Descrição**: Realiza o login e retorna um token JWT para autenticação.
+- **Corpo da Requisição**: 
+  ```json
+  {
+    "username": "seu_usuario",
+    "password": "sua_senha"
+  }
+  ```
+- **Resposta de Sucesso**: Um objeto contendo o token JWT.
+  ```json
+  {
+    "token": "ey...your.jwt.token...xx"
+  }
+  ```
+- **Resposta de Erro**: Um objeto contendo as mensagens de erro.
+  ```json
+  {
+    "erros": ["mensagem de erro"]
+  }
+  ```
+
+### POST /v1/api/usuario
+**Descrição**: Cadastra um novo usuário.
+- **Corpo da Requisição**: 
+  ```json
+  {
+    "username": "novo_usuario",
+    "password": "nova_senha"
+  }
+  ```
+- **Resposta de Sucesso**: Uma mensagem indicando que o usuário foi criado com sucesso.
+- **Resposta de Erro**: Um objeto contendo as mensagens de erro ou notificações de validação.
+  ```json
+  {
+    "erros": ["mensagem de erro"],
+    "notifications": ["mensagem de validação"]
+  }
+  ```
+
+---
+
+## Endpoints de Localidades
 
 ### GET /v1/api/localidade
 **Descrição**: Retorna uma lista paginada de localidades.  
