@@ -38,7 +38,7 @@ namespace DesafioLocalidade.Application.Services.IBGEServices
         {
             try
             {
-                IBGE ibge = await _context.IBGE.FirstOrDefaultAsync(ibge => ibge.Id.Equals(id)) ?? null;
+                IBGE ibge = await _context.IBGE.FirstOrDefaultAsync(ibge => ibge.Id.Equals(id));
                 if (ibge == null)
                     return false;
 
