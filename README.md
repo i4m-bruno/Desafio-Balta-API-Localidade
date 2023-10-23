@@ -18,8 +18,8 @@ A maioria dos endpoints exigem autenticação. Para obter acesso, é necessário
 - **Corpo da Requisição**: 
   ```json
   {
-    "username": "seu_usuario",
-    "password": "sua_senha"
+    "username": "admin@teste.com",
+    "password": "SenhaSecreta@123"
   }
   ```
 - **Resposta de Sucesso**: Um objeto contendo o token JWT.
